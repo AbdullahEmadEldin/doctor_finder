@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'theme/theme_manager.dart';
+import '../theme/theme_manager.dart';
 
 class UiHelper {
   /// This method to handle the string length to a limited length
