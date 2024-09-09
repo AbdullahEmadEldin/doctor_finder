@@ -22,6 +22,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "6.7.0"
+  animate_do:
+    dependency: "direct main"
+    description:
+      name: animate_do
+      sha256: "7a3162729f0ea042f9dd84da217c5bde5472ad9cef644079929d4304a5dc4ca0"
+      url: "https://pub.dev"
+    source: hosted
+    version: "3.3.4"
   ansicolor:
     dependency: transitive
     description:
@@ -336,6 +344,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.4.1"
+  flutter_ripple:
+    dependency: "direct main"
+    description:
+      name: flutter_ripple
+      sha256: c718de3fbd9a5cde64059fc4a5c88ebefd3c19acc2e14dde65aa4abea2b6d58a
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.0.3"
   flutter_screenutil:
     dependency: "direct main"
     description:
@@ -786,6 +802,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.0.0"
+  shimmer_animation:
+    dependency: "direct main"
+    description:
+      name: shimmer_animation
+      sha256: ddfeaf6833cef48e0dd31748f80ddcc14f44bd2cdf768d7449c83bd0c80613be
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.2.1"
   sky_engine:
     dependency: transitive
     description: flutter

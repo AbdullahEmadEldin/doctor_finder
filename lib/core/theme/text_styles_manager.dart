@@ -1,10 +1,10 @@
 // ignore_for_file: prefer_const_constructors
 
+import 'package:doctor_finder/core/lang_manager.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../lang_manager.dart';
 import '../helpers/ui_helpers.dart';
 import 'colors/colors_manager.dart';
 import 'fonts_manager.dart';

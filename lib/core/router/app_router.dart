@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../modules/onboarding/view/page/onboarding.dart';
+
 class AppRouter {
   static Route? onGenerate(RouteSettings settings) {
     final String? route = mapRoute(settings.name);
@@ -8,8 +10,8 @@ class AppRouter {
       //   return MaterialPageRoute(
       //     builder: (context) => const SplashScreen(),
       //   );
-      // case OnBoardingPage.routeName:
-      //   return MaterialPageRoute(builder: (context) => const OnBoardingPage());
+      case OnboardingPage.routeName:
+        return MaterialPageRoute(builder: (context) => const OnboardingPage());
       // case LoginPage.routeName:
       //   return AuthRouter.onGenerate(settings);
       // case AnimatedBottomBar.routeName:
