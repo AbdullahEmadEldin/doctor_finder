@@ -1,3 +1,4 @@
+import 'package:doctor_finder/modules/onboarding/view/page/onboarding.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -35,7 +36,7 @@ class _DocAppState extends State<DocApp> {
                 supportedLocales: context.supportedLocales,
                 debugShowCheckedModeBanner: false,
                 onGenerateRoute: AppRouter.onGenerate,
-                //initialRoute: SplashScreen.routeName,
+                initialRoute: OnboardingPage.routeName,
                 themeMode: themeMode,
                 theme: AppThemes.instance.lightAppTheme(context),
               );

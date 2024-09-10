@@ -103,91 +103,66 @@ class LightColorScheme implements AppColorScheme {
 }
 
 class DarkColorScheme implements AppColorScheme {
+  //********************************** Background0 Color IMPL **************************** */
   @override
-  Color get background => const Color(0xff0F2027).withOpacity(0.5);
-  @override
-  Color get primary => Color.fromARGB(255, 102, 125, 139);
-  @override
-  Color get lightPrimary => const Color(0xff4B6A70);
-  @override
-  Color get secondary => const Color(0xff728C86);
-  @override
-  Color get secondaryLight => Color.fromARGB(255, 19, 39, 48);
-  @override
-  Color get primaryGrade4 => Color.fromARGB(255, 24, 65, 83);
-  @override
-  Color get error => const Color.fromARGB(255, 234, 33, 33);
-  @override
-  Color get success => const Color(0xff2ECC71);
-  @override
-  Color get darkGrey => const Color(0xff737477);
-  @override
-  Color get black => const Color(0xff000000);
-  @override
-  Color get white => const Color(0xffFFFFFF);
-  @override
-  Color get darkPrimary => Color.fromARGB(255, 70, 44, 10);
-  @override
-  @override
-  Color get body => const Color(0xff5096FF);
+  Color get background => const Color(0xffFFFFFF);
 
   @override
-  Color get grey100 => throw UnimplementedError();
+  Color get black => const Color(0xff161616);
 
   @override
-  Color get grey20 => throw UnimplementedError();
+  Color get body => const Color(0xff7A7A7A);
+
+  //********************************** PRIMARY Color IMPL **************************** */
+  @override
+  Color get primary => const Color(0xff247CFF);
+  @override
+  Color get primary80 => const Color(0xff5096FF);
+  @override
+  Color get primary60 => const Color(0xff7CB0FF);
+  @override
+  Color get primary40 => const Color(0xffD3E5FF);
+  @override
+  Color get primary20 => const Color(0xffEAF2FF);
+  @override
+  Color get primarySurface => const Color(0xffA7CBFF);
+
+  //****************************** GREY Color IMPL ************************* */
+  @override
+  Color get grey20 => const Color(0xffF5F5F5);
+  @override
+  Color get grey30 => const Color(0xffEDEDED);
+  @override
+  Color get grey40 => const Color(0xffE0E0E0);
+  @override
+  Color get grey50 => const Color(0xffC2C2C2);
+  @override
+  Color get grey60 => const Color(0xff9E9E9E);
+  @override
+  Color get grey70 => const Color(0xff757575);
+  @override
+  Color get grey80 => const Color(0xff616161);
+  @override
+  Color get grey90 => const Color(0xff404040);
+  @override
+  Color get grey100 => const Color(0xff242424);
+
+  //***************************************** Secondary Color IMPL **************************** */
+  @override
+  Color get fillBlue => const Color(0xff247CFF);
 
   @override
-  Color get grey30 => throw UnimplementedError();
+  Color get fillGreen => const Color(0xff22C55E);
 
   @override
-  Color get grey40 => throw UnimplementedError();
+  Color get fillRed => const Color(0xffFF4C5E);
 
   @override
-  Color get grey50 => throw UnimplementedError();
+  Color get surfaceBlue => const Color(0xffEAF2FF);
 
   @override
-  Color get grey60 => throw UnimplementedError();
+  Color get surfaceGreen => const Color(0xffE9FAEF);
 
   @override
-  Color get grey70 => throw UnimplementedError();
-
-  @override
-  Color get grey80 => throw UnimplementedError();
-
-  @override
-  Color get grey90 => throw UnimplementedError();
-
-  @override
-  Color get fillBlue => throw UnimplementedError();
-
-  @override
-  Color get fillGreen => throw UnimplementedError();
-
-  @override
-  Color get fillRed => throw UnimplementedError();
-
-  @override
-  Color get primary20 => throw UnimplementedError();
-
-  @override
-  Color get primary40 => throw UnimplementedError();
-
-  @override
-  Color get primary60 => throw UnimplementedError();
-
-  @override
-  Color get primary80 => throw UnimplementedError();
-
-  @override
-  Color get primarySurface => throw UnimplementedError();
-
-  @override
-  Color get surfaceBlue => throw UnimplementedError();
-
-  @override
-  Color get surfaceGreen => throw UnimplementedError();
-
-  @override
-  Color get surfaceRed => throw UnimplementedError();
+  Color get surfaceRed => const Color(0xffEAF2FF);
 }

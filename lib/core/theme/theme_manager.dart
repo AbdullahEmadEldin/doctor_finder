@@ -4,7 +4,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../constants/constants.dart';
 import '../services/cache/cache_helper.dart';
 import 'colors/colors_manager.dart';
-import 'fonts_manager.dart';
 import 'text_styles_manager.dart';
 
 class AppThemes {
@@ -45,7 +44,7 @@ class AppThemes {
           style: ElevatedButton.styleFrom(
             textStyle: getRegularStyle(context,
                 color: ColorsManager().colorScheme.primarySurface,
-                fontSize: AppFontSize.s17),
+                fontSize: 17),
             backgroundColor: ColorsManager().colorScheme.primary,
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(12),

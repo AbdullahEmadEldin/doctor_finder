@@ -1,11 +1,11 @@
 // ignore_for_file: prefer_const_constructors
 
+import 'package:doctor_finder/core/lang_manager.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../lang_manager.dart';
-import '../ui_helpers.dart';
+import '../helpers/ui_helpers.dart';
 import 'colors/colors_manager.dart';
 import 'fonts_manager.dart';
 
@@ -14,9 +14,14 @@ class AppTextThemes {
         displayLarge: getSemiBoldStyle(
           context,
           color: ColorsManager().colorScheme.primary,
-          fontSize: UiHelper.getResponsiveDimension(context, baseDimension: 40),
+          fontSize: UiHelper.getResponsiveDimension(context, baseDimension: 57),
         ),
         displayMedium: getSemiBoldStyle(
+          context,
+          color: ColorsManager().colorScheme.primary,
+          fontSize: UiHelper.getResponsiveDimension(context, baseDimension: 45),
+        ),
+        displaySmall: getSemiBoldStyle(
           context,
           color: ColorsManager().colorScheme.primary,
           fontSize: UiHelper.getResponsiveDimension(context, baseDimension: 36),
@@ -31,15 +36,25 @@ class AppTextThemes {
           color: ColorsManager().colorScheme.primary,
           fontSize: UiHelper.getResponsiveDimension(context, baseDimension: 28),
         ),
-        titleMedium: getMediumStyle(
+        headlineSmall: getRegularStyle(
           context,
           color: ColorsManager().colorScheme.primary,
           fontSize: UiHelper.getResponsiveDimension(context, baseDimension: 26),
         ),
-        titleSmall: getRegularStyle(
+        titleLarge: getMediumStyle(
           context,
           color: ColorsManager().colorScheme.primary,
           fontSize: UiHelper.getResponsiveDimension(context, baseDimension: 24),
+        ),
+        titleMedium: getMediumStyle(
+          context,
+          color: ColorsManager().colorScheme.primary,
+          fontSize: UiHelper.getResponsiveDimension(context, baseDimension: 22),
+        ),
+        titleSmall: getRegularStyle(
+          context,
+          color: ColorsManager().colorScheme.primary,
+          fontSize: UiHelper.getResponsiveDimension(context, baseDimension: 20),
         ),
         bodyLarge: getRegularStyle(
           context,
@@ -56,16 +71,6 @@ class AppTextThemes {
           color: ColorsManager().colorScheme.primary,
           fontSize: UiHelper.getResponsiveDimension(context, baseDimension: 16),
         ),
-        labelLarge: getBoldStyle(
-          context,
-          color: ColorsManager().colorScheme.primary,
-          fontSize: UiHelper.getResponsiveDimension(context, baseDimension: 14),
-        ),
-        labelSmall: getBoldStyle(
-          context,
-          color: ColorsManager().colorScheme.primary,
-          fontSize: UiHelper.getResponsiveDimension(context, baseDimension: 12),
-        ),
       );
 
 //!! Dark theme !!!
@@ -78,7 +83,7 @@ class AppTextThemes {
 TextStyle _getTextStyle(
     BuildContext context, double fontSize, FontWeight fontWeight, Color color) {
   return TextStyle(
-      fontSize: fontSize,
+      fontSize: fontSize.sp,
       fontFamily: context.locale.languageCode == LanguageType.arabic.code
           ? AppFonts.notoKufiArabic
           : AppFonts.montserrat,
@@ -90,7 +95,7 @@ TextStyle _getTextStyle(
 
 TextStyle getRegularStyle(
   BuildContext context, {
-  double fontSize = AppFontSize.s12,
+  double fontSize = 12,
   required Color color,
 }) {
   return _getTextStyle(
@@ -105,7 +110,7 @@ TextStyle getRegularStyle(
 
 TextStyle getMediumStyle(
   BuildContext context, {
-  double fontSize = AppFontSize.s12,
+  double fontSize = 12,
   required Color color,
 }) {
   return _getTextStyle(
@@ -120,7 +125,7 @@ TextStyle getMediumStyle(
 
 TextStyle getLightStyle(
   BuildContext context, {
-  double fontSize = AppFontSize.s12,
+  double fontSize = 12,
   required Color color,
 }) {
   return _getTextStyle(
@@ -135,7 +140,7 @@ TextStyle getLightStyle(
 
 TextStyle getBoldStyle(
   BuildContext context, {
-  double fontSize = AppFontSize.s12,
+  double fontSize = 12,
   required Color color,
 }) {
   return _getTextStyle(context, fontSize, AppFontWeight.bold, color);
@@ -145,7 +150,7 @@ TextStyle getBoldStyle(
 
 TextStyle getSemiBoldStyle(
   BuildContext context, {
-  double fontSize = AppFontSize.s12,
+  double fontSize = 12,
   required Color color,
 }) {
   return _getTextStyle(context, fontSize, AppFontWeight.semiBold, color);
