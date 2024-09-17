@@ -42,37 +42,11 @@ class _GetStartedButtonState extends State<GetStartedButton>
       ),
     );
 
-    // Add a listener to stop only when it's back to neutral (0 radians)
-    // _controller.addStatusListener((status) async {
-    //   swingingCycles += status.index;
-    //   if (status == AnimationStatus.reverse) {
-    //     print('Status ===>> $swingingCycles');
-
-    //     // Only pause for 4 seconds when the animation is back to the neutral position
-    //     if (swingingCycles % 4 == 0) {
-    //       await Future.delayed(const Duration(milliseconds: 4200), () {
-    //         if (status.isAnimating) {
-    //           print('STOP ');
-    //           _controller.stop();
-    //         }
-    //       });
-    //     }
-    //     await Future.delayed(const Duration(seconds: 6), () {
-    //       if (!status.isAnimating) {
-    //         print('REPEAT ');
-    //         _controller.repeat();
-    //       }
-    //     });
-    //   }
-    // });
-
-    // Start the swing animation
-    // _controller.forward();
     _stopAnimation();
   }
 
   void _stopAnimation() async {
-    await Future.delayed(const Duration(seconds: 8), () {
+    await Future.delayed(const Duration(seconds: 6), () {
       _controller.stop();
       setState(() {
         isAnimationStopped = true;
