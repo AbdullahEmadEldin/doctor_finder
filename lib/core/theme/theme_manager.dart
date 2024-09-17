@@ -42,7 +42,7 @@ class AppThemes {
         // elevated button them
         elevatedButtonTheme: ElevatedButtonThemeData(
           style: ElevatedButton.styleFrom(
-            textStyle: getRegularStyle(context,
+            textStyle: getTextStyle(context,
                 color: ColorsManager().colorScheme.primarySurface,
                 fontSize: 17),
             backgroundColor: ColorsManager().colorScheme.primary,
@@ -58,12 +58,12 @@ class AppThemes {
           contentPadding:
               const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
           // hint style
-          hintStyle: getRegularStyle(context,
+          hintStyle: getTextStyle(context,
               color: ColorsManager().colorScheme.grey50, fontSize: 14.sp),
-          labelStyle: getMediumStyle(context,
+          labelStyle: getTextStyle(context,
               color: ColorsManager().colorScheme.grey50, fontSize: 14.sp),
-          errorStyle: getRegularStyle(context,
-              color: ColorsManager().colorScheme.fillRed),
+          errorStyle: getTextStyle(context,
+              color: ColorsManager().colorScheme.fillRed, fontSize: 14.sp),
 
           // enabled border style
           enabledBorder: OutlineInputBorder(
