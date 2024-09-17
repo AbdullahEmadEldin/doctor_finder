@@ -3,3 +3,5 @@ flutter_native_splash:
   image: assets/images/Splash_Screen_under_12.png
 
   android_12:
+    image: assets/images/splash_android_12.png
+    image_android: assets/images/splash_android_12.png
