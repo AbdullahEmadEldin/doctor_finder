@@ -41,11 +41,11 @@ class AppTextThemes {
           color: ColorsManager().colorScheme.primary,
           fontSize: UiHelper.getResponsiveDimension(context, baseDimension: 26),
         ),
-        titleLarge: getTextStyle(
-          context,
-          color: ColorsManager().colorScheme.primary,
-          fontSize: UiHelper.getResponsiveDimension(context, baseDimension: 24),
-        ),
+        titleLarge: getTextStyle(context,
+            color: ColorsManager().colorScheme.primary,
+            fontSize:
+                UiHelper.getResponsiveDimension(context, baseDimension: 24),
+            fontWeight: FontWeight.w900),
         titleMedium: getTextStyle(
           context,
           color: ColorsManager().colorScheme.primary,
@@ -59,17 +59,17 @@ class AppTextThemes {
         bodyLarge: getTextStyle(
           context,
           color: ColorsManager().colorScheme.primary,
-          fontSize: UiHelper.getResponsiveDimension(context, baseDimension: 20),
+          fontSize: UiHelper.getResponsiveDimension(context, baseDimension: 18),
         ),
         bodyMedium: getTextStyle(
           context,
-          color: ColorsManager().colorScheme.primary,
-          fontSize: UiHelper.getResponsiveDimension(context, baseDimension: 18),
+          color: ColorsManager().colorScheme.grey60,
+          fontSize: UiHelper.getResponsiveDimension(context, baseDimension: 16),
         ),
         bodySmall: getTextStyle(
           context,
-          color: ColorsManager().colorScheme.primary,
-          fontSize: UiHelper.getResponsiveDimension(context, baseDimension: 16),
+          color: ColorsManager().colorScheme.grey70,
+          fontSize: UiHelper.getResponsiveDimension(context, baseDimension: 14),
         ),
       );
 

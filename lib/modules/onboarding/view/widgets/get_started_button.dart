@@ -1,4 +1,6 @@
 import 'package:animate_do/animate_do.dart';
+import 'package:doctor_finder/core/helpers/extensions.dart';
+import 'package:doctor_finder/modules/auth/login/view/pages/login_page.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -88,7 +90,7 @@ class _GetStartedButtonState extends State<GetStartedButton>
                     ),
                   ),
                 ),
-                onPressed: () {},
+                onPressed: () => context.pushNamed(LoginPage.routeName),
                 child: Text(
                   AppStrings.getStarted.tr(),
                   style: Theme.of(context).textTheme.bodyLarge!.copyWith(

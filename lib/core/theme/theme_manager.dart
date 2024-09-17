@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../constants/constants.dart';
 import '../services/cache/cache_helper.dart';
@@ -52,54 +51,6 @@ class AppThemes {
           ),
         ),
         textTheme: AppTextThemes.lightTextTheme(context),
-        // input decoration theme (text form field)
-        inputDecorationTheme: InputDecorationTheme(
-          // content padding
-          contentPadding:
-              const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
-          // hint style
-          hintStyle: getTextStyle(context,
-              color: ColorsManager().colorScheme.grey50, fontSize: 14.sp),
-          labelStyle: getTextStyle(context,
-              color: ColorsManager().colorScheme.grey50, fontSize: 14.sp),
-          errorStyle: getTextStyle(context,
-              color: ColorsManager().colorScheme.fillRed, fontSize: 14.sp),
-
-          // enabled border style
-          enabledBorder: OutlineInputBorder(
-            borderSide: BorderSide(
-                color: ColorsManager().colorScheme.grey50, width: 0.5),
-            borderRadius: const BorderRadius.all(
-              Radius.circular(8),
-            ),
-          ),
-
-          // focused border style
-          focusedBorder: OutlineInputBorder(
-            borderSide: BorderSide(
-                color: ColorsManager().colorScheme.primary, width: 1.5),
-            borderRadius: const BorderRadius.all(
-              Radius.circular(8),
-            ),
-          ),
-
-          // error border style
-          errorBorder: OutlineInputBorder(
-            borderSide: BorderSide(
-                color: ColorsManager().colorScheme.fillRed, width: 1.5),
-            borderRadius: const BorderRadius.all(
-              Radius.circular(8),
-            ),
-          ),
-          // focused border style
-          focusedErrorBorder: OutlineInputBorder(
-            borderSide: BorderSide(
-                color: ColorsManager().colorScheme.primary, width: 1.5),
-            borderRadius: const BorderRadius.all(
-              Radius.circular(8),
-            ),
-          ),
-        ),
         // label style
         progressIndicatorTheme: ProgressIndicatorThemeData(
             color: ColorsManager().colorScheme.primary),
