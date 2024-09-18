@@ -60,7 +60,7 @@ class LoginPage extends StatelessWidget {
                 ),
                 SizedBox(height: 24.h),
                 const TermsAndConditionsText(),
-                SizedBox(height: 32.h),
+                SizedBox(height: 180.h),
                 const DontHaveAccount(),
                 SizedBox(height: 32.h),
               ],
