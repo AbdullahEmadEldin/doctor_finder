@@ -1,12 +1,16 @@
 import 'package:doctor_finder/core/constants/app_strings.dart';
 import 'package:doctor_finder/core/theme/colors/colors_manager.dart';
 import 'package:doctor_finder/core/widgets/main_app_button.dart';
+import 'package:doctor_finder/modules/auth/login/data/models/login_request_body.dart';
+import 'package:doctor_finder/modules/auth/login/logic/cubit/login_cubit.dart';
 import 'package:doctor_finder/modules/auth/login/view/widget/data_form.dart';
 import 'package:doctor_finder/modules/auth/login/view/widget/dont_have_account.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../widget/login_bloc_listener.dart';
 import '../widget/policy_text.dart';
 
 class LoginPage extends StatelessWidget {
@@ -33,7 +37,7 @@ class LoginPage extends StatelessWidget {
                   style: Theme.of(context).textTheme.bodyMedium,
                 ),
                 SizedBox(height: 35.h),
-                const DataForm(),
+                const EmailAndPasswordForm(),
                 SizedBox(height: 16.h),
                 Align(
                   alignment: AlignmentDirectional.centerEnd,
@@ -56,13 +60,32 @@ class LoginPage extends StatelessWidget {
                         color: ColorsManager().colorScheme.background,
                         fontWeight: FontWeight.w700,
                       ),
-                  onPressed: () {},
+                  onPressed: () {
+                    if (context
+                        .read<LoginCubit>()
+                        .loginFormKey
+                        .currentState!
+                        .validate()) {
+                      context.read<LoginCubit>().login(
+                            loginRequestBody: LoginRequestBody(
+                              email: context
+                                  .read<LoginCubit>()
+                                  .emailController
+                                  .text,
+                              password: context
+                                  .read<LoginCubit>()
+                                  .passwordController
+                                  .text,
+                            ),
+                          );
+                    }
+                  },
                 ),
                 SizedBox(height: 24.h),
                 const TermsAndConditionsText(),
-                SizedBox(height: 180.h),
+                SizedBox(height: 64.h),
                 const DontHaveAccount(),
-                SizedBox(height: 32.h),
+                const LoginBlocListener(),
               ],
             ),
           ),

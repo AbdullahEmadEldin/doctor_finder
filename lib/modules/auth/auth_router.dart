@@ -1,4 +1,7 @@
+import 'package:doctor_finder/core/di/dependency_injection.dart';
+import 'package:doctor_finder/modules/auth/login/logic/cubit/login_cubit.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'login/view/pages/login_page.dart';
 
@@ -9,8 +12,10 @@ class AuthRouter {
         return PageRouteBuilder(
           transitionDuration: const Duration(milliseconds: 800),
           transitionsBuilder: _authPagesAnimationBuilder,
-          pageBuilder: (context, animation, secondaryAnimation) =>
-              const LoginPage(),
+          pageBuilder: (context, animation, secondaryAnimation) => BlocProvider(
+            create: (context) => getIt<LoginCubit>(),
+            child: const LoginPage(),
+          ),
         );
       default:
         return null;

@@ -12,6 +12,7 @@ class InputField extends StatelessWidget {
   final InputBorder? focusedBorder;
   final InputBorder? errorBorder;
   final bool? obscureText;
+  final TextEditingController? controller;
   const InputField({
     super.key,
     required this.hintText,
@@ -23,11 +24,14 @@ class InputField extends StatelessWidget {
     this.focusedBorder,
     this.errorBorder,
     this.obscureText,
+    this.controller,
   });
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      controller: controller,
+      validator: validator,
       obscureText: obscureText ?? false,
       style: Theme.of(context)
           .textTheme
@@ -66,6 +70,14 @@ class InputField extends StatelessWidget {
               ),
             ),
         errorBorder: errorBorder ??
+            OutlineInputBorder(
+              borderRadius: BorderRadius.circular(16),
+              borderSide: BorderSide(
+                color: ColorsManager().colorScheme.fillRed,
+                width: 1.3,
+              ),
+            ),
+        focusedErrorBorder: errorBorder ??
             OutlineInputBorder(
               borderRadius: BorderRadius.circular(16),
               borderSide: BorderSide(
