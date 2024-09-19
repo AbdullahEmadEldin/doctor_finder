@@ -14,6 +14,15 @@
     "policy2":" Terms & Conditions",
     "policy3":" and",
     "policy4":" Privacy Policy",
-    "dont_have_account":"Dont't have an account? "
+    "dont_have_account":"Dont't have an account? ",
+    "Ok":"Ok",
+    "enterValidEmail": "Please enter a valid email"  ,
+    "enterValidPassword":"Please enter a valid password",
+    "eightCharacters":"At least 8 characters",
+    "uppercaseCharacter":"Contains uppercase character",
+    "lowercaseCharacter":"Contains lowercase character",
+    "number":"Contains number",
+    "specialCharacter":"Contains special character"
+    
 
 }

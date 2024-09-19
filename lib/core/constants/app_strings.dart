@@ -19,4 +19,14 @@ class AppStrings {
   static const String policy4 = 'policy4';
 
   static const String dontHaveAccount = 'dont_have_account';
+  //! new
+  static const String ok = 'Ok';
+
+  static const String enterValidEmail = 'enterValidEmail';
+  static const String enterValidPassword = 'enterValidPassword';
+  static const String eightCharacters = 'eightCharacters';
+  static const String uppercaseCharacter = 'uppercaseCharacter';
+  static const String lowercaseCharacter = 'lowercaseCharacter';
+  static const String number = 'number';
+  static const String specialCharacter = 'specialCharacter';
 }
