@@ -14,7 +14,7 @@ class _ApiConsumer implements ApiConsumer {
     this.baseUrl,
     this.errorLogger,
   }) {
-    baseUrl ??= 'https://vcare.integration25.com/api';
+    baseUrl ??= 'https://vcare.integration25.com/api/';
   }
 
   final Dio _dio;
