@@ -1,3 +1,4 @@
+import 'package:doctor_finder/core/di/dependency_injection.dart';
 import 'package:doctor_finder/core/theme/colors/colors_manager.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
@@ -13,6 +14,7 @@ void main() async {
   await ScreenUtil.ensureScreenSize();
   await EasyLocalization.ensureInitialized();
   await CacheHelper.init();
+  setUpGetIt();
   final String startLocale = await LanguageManager.getAppLang();
   CacheHelper.init();
   // Set the status bar to the app background

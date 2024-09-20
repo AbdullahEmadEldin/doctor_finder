@@ -1,102 +1,42 @@
 import 'package:dio/dio.dart';
-import 'package:flutter/foundation.dart';
+import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 
-import '../errors/exceptions.dart';
-import 'api_consumer.dart';
-import 'api_interceptor.dart';
+/// This class' function to initialize single instance of dio
+/// and make it's configuration.
+class DioFactory {
+  /// private constructor as I don't want to allow creating an instance of this class
+  DioFactory._();
 
-class DioConsumer extends ApiConsumer {
-  final Dio dio;
+  static Dio? _dio;
 
-  DioConsumer._({
-    required this.dio,
-  }) {
-    /// add interceptors
-    dio.interceptors.add(
-      ApiInterceptor(),
+  static Dio getDio() {
+    Duration timeOut = const Duration(seconds: 30);
+
+    if (_dio == null) {
+      _dio = Dio();
+      _dio!
+        ..options.connectTimeout = timeOut
+        ..options.receiveTimeout = timeOut;
+      addDioInterceptor();
+      return _dio!;
+    } else {
+      return _dio!;
+    }
+  }
+
+  static void setTokenIntoHeaderAfterLogin(String token) {
+    _dio?.options.headers = {
+      'Authorization': 'Bearer $token',
+    };
+  }
+
+  static void addDioInterceptor() {
+    _dio?.interceptors.add(
+      PrettyDioLogger(
+        requestBody: true,
+        requestHeader: true,
+        responseHeader: true,
+      ),
     );
-    if (!kReleaseMode) {
-      dio.interceptors.add(
-        LogInterceptor(
-          request: true,
-          requestBody: true,
-          requestHeader: true,
-          responseHeader: true,
-          responseBody: true,
-          error: true,
-        ),
-      );
-    }
-  }
-
-  /// wwe use singleton design pattern to ensure only one instance is used
-  /// and ease dependency injection.
-  factory DioConsumer() => DioConsumer._(dio: Dio());
-  @override
-  Future post({
-    required String path,
-    Map<String, dynamic>? queryParameters,
-    Map<String, dynamic>? body,
-    void Function(int p1, String p2)? cancelToken,
-    bool isFormData = false,
-  }) async {
-    try {
-      final response = await dio.post(
-        path,
-        queryParameters: queryParameters,
-        data: isFormData ? FormData.fromMap(body!) : body,
-      );
-      return response.data;
-    } on DioException catch (e) {
-      handleDioException(e);
-    }
-  }
-
-  @override
-  Future get({
-    required String path,
-    Map<String, dynamic>? queryParameters,
-    Options? options,
-  }) async {
-    try {
-      final response = await dio.get(
-        path,
-        queryParameters: queryParameters,
-        options: options,
-
-        /// in case getting image and convert it into bytes we will use this.
-      );
-      return response.data;
-    } on DioException catch (e) {
-      handleDioException(e);
-    }
-  }
-
-  @override
-  Future delete({
-    required String path,
-    bool isFormData = false,
-  }) async {
-    try {
-      await dio.delete(path);
-    } on DioException catch (e) {
-      handleDioException(e);
-    }
-  }
-
-  @override
-  Future patch({
-    required String path,
-    Map<String, dynamic>? body,
-    bool isFormData = false,
-  }) async {
-    try {
-      await dio.patch(
-        path,
-        data: isFormData ? FormData.fromMap(body!) : body,
-      );
-    } on DioException catch (e) {
-      handleDioException(e);
-    }
   }
 }

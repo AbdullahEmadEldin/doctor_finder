@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../constants/constants.dart';
 import '../services/cache/cache_helper.dart';
@@ -42,7 +41,7 @@ class AppThemes {
         // elevated button them
         elevatedButtonTheme: ElevatedButtonThemeData(
           style: ElevatedButton.styleFrom(
-            textStyle: getRegularStyle(context,
+            textStyle: getTextStyle(context,
                 color: ColorsManager().colorScheme.primarySurface,
                 fontSize: 17),
             backgroundColor: ColorsManager().colorScheme.primary,
@@ -52,54 +51,6 @@ class AppThemes {
           ),
         ),
         textTheme: AppTextThemes.lightTextTheme(context),
-        // input decoration theme (text form field)
-        inputDecorationTheme: InputDecorationTheme(
-          // content padding
-          contentPadding:
-              const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
-          // hint style
-          hintStyle: getRegularStyle(context,
-              color: ColorsManager().colorScheme.grey50, fontSize: 14.sp),
-          labelStyle: getMediumStyle(context,
-              color: ColorsManager().colorScheme.grey50, fontSize: 14.sp),
-          errorStyle: getRegularStyle(context,
-              color: ColorsManager().colorScheme.fillRed),
-
-          // enabled border style
-          enabledBorder: OutlineInputBorder(
-            borderSide: BorderSide(
-                color: ColorsManager().colorScheme.grey50, width: 0.5),
-            borderRadius: const BorderRadius.all(
-              Radius.circular(8),
-            ),
-          ),
-
-          // focused border style
-          focusedBorder: OutlineInputBorder(
-            borderSide: BorderSide(
-                color: ColorsManager().colorScheme.primary, width: 1.5),
-            borderRadius: const BorderRadius.all(
-              Radius.circular(8),
-            ),
-          ),
-
-          // error border style
-          errorBorder: OutlineInputBorder(
-            borderSide: BorderSide(
-                color: ColorsManager().colorScheme.fillRed, width: 1.5),
-            borderRadius: const BorderRadius.all(
-              Radius.circular(8),
-            ),
-          ),
-          // focused border style
-          focusedErrorBorder: OutlineInputBorder(
-            borderSide: BorderSide(
-                color: ColorsManager().colorScheme.primary, width: 1.5),
-            borderRadius: const BorderRadius.all(
-              Radius.circular(8),
-            ),
-          ),
-        ),
         // label style
         progressIndicatorTheme: ProgressIndicatorThemeData(
             color: ColorsManager().colorScheme.primary),

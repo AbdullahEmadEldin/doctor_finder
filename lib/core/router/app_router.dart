@@ -1,26 +1,23 @@
 import 'package:flutter/material.dart';
 
+import '../../modules/auth/auth_router.dart';
+import '../../modules/auth/login/view/pages/login_page.dart';
 import '../../modules/onboarding/view/page/onboarding.dart';
 
 class AppRouter {
   static Route? onGenerate(RouteSettings settings) {
     final String? route = mapRoute(settings.name);
     switch (route) {
-      // case SplashScreen.routeName:
-      //   return MaterialPageRoute(
-      //     builder: (context) => const SplashScreen(),
-      //   );
       case OnboardingPage.routeName:
         return MaterialPageRoute(builder: (context) => const OnboardingPage());
-      // case LoginPage.routeName:
-      //   return AuthRouter.onGenerate(settings);
-      // case AnimatedBottomBar.routeName:
-      //   return NavBarRouter.onGenerate(settings);
+      case LoginPage.routeName:
+        return AuthRouter.onGenerate(settings);
       // default:
       //   return MaterialPageRoute(builder: (context) => const ErrorRouter());
     }
   }
 
+  //********************************** Routes Mapper ************************************/
   /// This method for handling subRouters routes
   /// for e.x:
   ///   NavBarRouter (a main router)
