@@ -1,7 +1,6 @@
 import 'package:doctor_finder/core/constants/app_strings.dart';
 import 'package:doctor_finder/core/theme/colors/colors_manager.dart';
 import 'package:doctor_finder/core/widgets/main_app_button.dart';
-import 'package:doctor_finder/modules/auth/login/data/models/login_request_body.dart';
 import 'package:doctor_finder/modules/auth/login/logic/cubit/login_cubit.dart';
 import 'package:doctor_finder/modules/auth/login/view/widget/data_form.dart';
 import 'package:doctor_finder/modules/auth/login/view/widget/dont_have_account.dart';
@@ -66,18 +65,7 @@ class LoginPage extends StatelessWidget {
                         .loginFormKey
                         .currentState!
                         .validate()) {
-                      context.read<LoginCubit>().login(
-                            loginRequestBody: LoginRequestBody(
-                              email: context
-                                  .read<LoginCubit>()
-                                  .emailController
-                                  .text,
-                              password: context
-                                  .read<LoginCubit>()
-                                  .passwordController
-                                  .text,
-                            ),
-                          );
+                      context.read<LoginCubit>().login();
                     }
                   },
                 ),

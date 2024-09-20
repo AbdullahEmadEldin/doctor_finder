@@ -10,8 +10,15 @@ class AppStrings {
   static const String forgotPassword = 'forgot_password';
   static const String resetPassword = 'reset_password';
   static const String email = 'email';
+  static const String name = 'name';
+  static const String phoneNumber = 'phone_number';
+  static const String gender = 'gender';
   static const String password = 'password';
+  static const String passwordConfirmation = 'password_confirmation';
+  static const String register = 'register';
   static const String signUp = 'sign_up';
+
+  static const String createAccount = 'create_account';
 
   static const String policy1 = 'policy1';
   static const String policy2 = 'policy2';
@@ -19,7 +26,8 @@ class AppStrings {
   static const String policy4 = 'policy4';
 
   static const String dontHaveAccount = 'dont_have_account';
-  //! new
+  static const String alreadyHaveAccount = 'already_have_account';
+
   static const String ok = 'Ok';
 
   static const String enterValidEmail = 'enterValidEmail';
@@ -28,5 +36,12 @@ class AppStrings {
   static const String uppercaseCharacter = 'uppercaseCharacter';
   static const String lowercaseCharacter = 'lowercaseCharacter';
   static const String number = 'number';
+  static const String male = 'male';
+  static const String female = 'female';
+
   static const String specialCharacter = 'specialCharacter';
+
+  static const String enterPhoneNumber = 'enter_phone_number';
+  static const String enterName = 'enter_name';
+  static const String needToLogin = 'need_to_login';
 }

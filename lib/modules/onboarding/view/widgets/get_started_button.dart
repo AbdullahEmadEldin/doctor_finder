@@ -48,7 +48,7 @@ class _GetStartedButtonState extends State<GetStartedButton>
   }
 
   void _stopAnimation() async {
-    await Future.delayed(const Duration(seconds: 6), () {
+    await Future.delayed(const Duration(seconds: 4), () {
       _controller.stop();
       setState(() {
         isAnimationStopped = true;
@@ -90,7 +90,7 @@ class _GetStartedButtonState extends State<GetStartedButton>
                     ),
                   ),
                 ),
-                onPressed: () => context.pushNamed(LoginPage.routeName),
+                onPressed: () => context.pushReplacementNamed(LoginPage.routeName),
                 child: Text(
                   AppStrings.getStarted.tr(),
                   style: Theme.of(context).textTheme.bodyLarge!.copyWith(
