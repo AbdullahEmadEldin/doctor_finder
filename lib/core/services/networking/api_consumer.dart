@@ -4,6 +4,8 @@ import 'package:retrofit/retrofit.dart';
 
 import '../../../modules/auth/login/data/models/login_request_body.dart';
 import '../../../modules/auth/login/data/models/login_response.dart';
+import '../../../modules/auth/signup/data/model/signup_request_body.dart';
+import '../../../modules/auth/signup/data/model/signup_response.dart';
 
 part 'api_consumer.g.dart';
 
@@ -15,5 +17,10 @@ abstract class ApiConsumer {
   @POST(ApiConstants.login)
   Future<LoginResponse> login(
     @Body() LoginRequestBody body,
+  );
+
+  @POST(ApiConstants.signup)
+  Future<SignUpResponse> signUp(
+    @Body() SignUpRequestBody body,
   );
 }
