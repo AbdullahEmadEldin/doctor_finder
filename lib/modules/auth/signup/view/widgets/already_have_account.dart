@@ -1,14 +1,14 @@
-import 'package:doctor_finder/core/constants/app_strings.dart';
 import 'package:doctor_finder/core/helpers/extensions.dart';
-import 'package:doctor_finder/modules/auth/signup/view/page/signup_page.dart';
+import 'package:doctor_finder/modules/auth/login/view/pages/login_page.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
+import '../../../../../core/constants/app_strings.dart';
 import '../../../../../core/theme/colors/colors_manager.dart';
 
-class DontHaveAccount extends StatelessWidget {
-  const DontHaveAccount({super.key});
+class AlreadyHaveAccount extends StatelessWidget {
+  const AlreadyHaveAccount({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +30,7 @@ class DontHaveAccount extends StatelessWidget {
                   ),
               recognizer: TapGestureRecognizer()
                 ..onTap =
-                    () => context.pushReplacementNamed(SignUpPage.routeName),
+                    () => context.pushReplacementNamed(LoginPage.routeName),
             ),
           ],
         ),

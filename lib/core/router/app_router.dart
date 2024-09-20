@@ -1,9 +1,15 @@
+import 'package:doctor_finder/modules/home/view/pages/home_page.dart';
 import 'package:flutter/material.dart';
 
 import '../../modules/auth/auth_router.dart';
 import '../../modules/auth/login/view/pages/login_page.dart';
+import '../../modules/home/home_router.dart';
 import '../../modules/onboarding/view/page/onboarding.dart';
 
+//! =================== Naming convention for routes ===================
+//? to handle nested routes with the handler properly naming routes should start with '/' then the route name
+//? and between each route name should be '/'
+//? e.x: /login/register
 class AppRouter {
   static Route? onGenerate(RouteSettings settings) {
     final String? route = mapRoute(settings.name);
@@ -12,6 +18,8 @@ class AppRouter {
         return MaterialPageRoute(builder: (context) => const OnboardingPage());
       case LoginPage.routeName:
         return AuthRouter.onGenerate(settings);
+      case HomePage.routeName:
+        return HomeRouter.onGenerate(settings);
       // default:
       //   return MaterialPageRoute(builder: (context) => const ErrorRouter());
     }

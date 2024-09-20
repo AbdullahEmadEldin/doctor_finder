@@ -1,9 +1,12 @@
 import 'package:doctor_finder/core/di/dependency_injection.dart';
 import 'package:doctor_finder/modules/auth/login/logic/cubit/login_cubit.dart';
+import 'package:doctor_finder/modules/auth/signup/logic/cubit/signup_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'login/view/pages/login_page.dart';
+import 'signup/view/page/signup_page.dart';
+
 
 class AuthRouter {
   static Route? onGenerate(RouteSettings settings) {
@@ -15,6 +18,15 @@ class AuthRouter {
           pageBuilder: (context, animation, secondaryAnimation) => BlocProvider(
             create: (context) => getIt<LoginCubit>(),
             child: const LoginPage(),
+          ),
+        );
+        case SignUpPage.routeName:
+        return PageRouteBuilder(
+          transitionDuration: const Duration(milliseconds: 800),
+          transitionsBuilder: _authPagesAnimationBuilder,
+          pageBuilder: (context, animation, secondaryAnimation) => BlocProvider(
+            create: (context) => getIt<SignupCubit>(),
+            child: const SignUpPage(),
           ),
         );
       default:

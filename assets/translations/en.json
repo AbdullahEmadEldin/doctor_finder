@@ -22,7 +22,18 @@
     "uppercaseCharacter":"Contains uppercase character",
     "lowercaseCharacter":"Contains lowercase character",
     "number":"Contains number",
-    "specialCharacter":"Contains special character"
-    
+    "specialCharacter":"Contains special character",
+    "name":"Name",
+    "phone_number":"Phone Number",
+    "password_confirmation":"Password Confirmation",
+    "gender":"Gender",
+    "already_have_account":"Already have an account? ",
+    "create_account":"Create Account",
+    "register":"Register",
+    "male":"Male",
+    "female":"Female",
+    "enter_phone_number":"Enter valid phone number",
+    "enter_name":"Enter Name",
+    "need_to_login":". You need to login"
 
 }

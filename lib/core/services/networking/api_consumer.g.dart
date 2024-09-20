@@ -71,7 +71,7 @@ class _ApiConsumer implements ApiConsumer {
     )
         .compose(
           _dio.options,
-          'auth/signup',
+          'auth/register',
           queryParameters: queryParameters,
           data: _data,
         )
