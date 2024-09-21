@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1060403035006",
+    "project_id": "doctor-finder-671b4",
+    "storage_bucket": "doctor-finder-671b4.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1060403035006:android:a6f6e9c9d07fb943c6d12f",
+        "android_client_info": {
+          "package_name": "com.example.doctor_finder"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBQx0KdFNXe2mxwJph2nCK7egWpyHPghQI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
