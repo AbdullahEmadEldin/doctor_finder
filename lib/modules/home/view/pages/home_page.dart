@@ -1,4 +1,5 @@
 import 'package:doctor_finder/modules/home/view/widgets/home_banner.dart';
+import 'package:doctor_finder/modules/home/view/widgets/specialties.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -19,7 +20,10 @@ class HomePage extends StatelessWidget {
               children: [
                 const HomeTopBar(),
                 SizedBox(height: 28.h),
-               const HomeBanner(),
+                const HomeBanner(),
+                SizedBox(height: 16.h),
+                const Specialties(),
+                
               ],
             ),
           ),
