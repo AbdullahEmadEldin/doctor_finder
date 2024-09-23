@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../core/theme/colors/colors_manager.dart';
+import 'home_section_header.dart';
 
 class Specialties extends StatelessWidget {
   const Specialties({super.key});
@@ -11,28 +12,12 @@ class Specialties extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Text(
-              'Doctor Specialty',
-              style: Theme.of(context).textTheme.titleMedium!.copyWith(
-                  color: ColorsManager().colorScheme.black,
-                  fontWeight: FontWeight.w600),
-            ),
-            GestureDetector(
-              onTap: () {
-                //TODO Navigate to all Specialties page
-              },
-              child: Text(
-                'See All',
-                style: Theme.of(context)
-                    .textTheme
-                    .bodyMedium!
-                    .copyWith(color: ColorsManager().colorScheme.primary),
-              ),
-            )
-          ],
+        HomeSectionHeader(
+          title: 'Doctor Specialty',
+          actionTitle: 'See All',
+          onTap: () {
+            //TODO nav to all specialty.
+          },
         ),
         SizedBox(height: 8.h),
         SizedBox(
@@ -41,7 +26,11 @@ class Specialties extends StatelessWidget {
             scrollDirection: Axis.horizontal,
             itemCount: DoctorSpecialty.values.length,
             itemBuilder: (context, index) => DoctorSpecialty.values
-                .map((s) => _buildSpecialtyTile(s, context))
+                .map((s) => Padding(
+                      padding: EdgeInsetsDirectional.only(
+                          start: index == 0 ? 0 : 24.w),
+                      child: _buildSpecialtyTile(s, context),
+                    ))
                 .toList()[index],
           ),
         )
@@ -50,23 +39,20 @@ class Specialties extends StatelessWidget {
   }
 
   Widget _buildSpecialtyTile(DoctorSpecialty s, BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.symmetric(vertical: 8.h, horizontal: 16.w),
-      child: Column(
-        children: [
-          Image.asset(
-            s.icon,
-            height: 65.h,
-          ),
-          Text(
-            s.name,
-            style: Theme.of(context)
-                .textTheme
-                .bodyMedium!
-                .copyWith(color: ColorsManager().colorScheme.black),
-          ),
-        ],
-      ),
+    return Column(
+      children: [
+        Image.asset(
+          s.icon,
+          height: 65.h,
+        ),
+        Text(
+          s.name,
+          style: Theme.of(context)
+              .textTheme
+              .bodyMedium!
+              .copyWith(color: ColorsManager().colorScheme.black),
+        ),
+      ],
     );
   }
 }
