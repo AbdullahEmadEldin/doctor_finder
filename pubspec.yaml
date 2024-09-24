@@ -33,8 +33,10 @@ dependencies:
   retrofit: 4.4.0
   retrofit_generator: 9.1.0
   shared_preferences: ^2.3.2
+  # this package for shimmer or flashing effect on buttons 
   shimmer_animation: ^2.2.1
-
+  # this package for drawing shimmer without need to build it from scratch
+  skeletonizer: ^1.4.2
 dev_dependencies:
   build_runner: ^2.4.12
 

@@ -41,7 +41,7 @@ class SpecialtyTile extends StatelessWidget {
           ),
         ),
         Text(
-          specialtyTitle ?? 'Spec',
+          specialtyTitle ?? 'Specialty',
           style: isSpecialtySelected
               ? Theme.of(context).textTheme.bodyMedium!.copyWith(
                     fontWeight: FontWeight.w700,

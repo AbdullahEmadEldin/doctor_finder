@@ -5,10 +5,10 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../../../core/theme/colors/colors_manager.dart';
 
 class DoctorTile extends StatelessWidget {
-  final Doctor doctor;
+  final Doctor? doctor;
   const DoctorTile({
     super.key,
-    required this.doctor,
+    this.doctor,
   });
 
   @override
@@ -31,7 +31,8 @@ class DoctorTile extends StatelessWidget {
                 child: Image.network(
                   width: 110.w,
                   height: 120.h,
-                  'https://cdn.punchng.com/wp-content/uploads/2023/09/20144750/Umoh-Michael-e1695217670244.jpeg',
+                  // there is no doctor's image comes from server, so this is as a placeholder
+                  'https://cdn-icons-png.flaticon.com/512/6007/6007346.png',
                   fit: BoxFit.cover,
                 ),
               ),
@@ -40,7 +41,7 @@ class DoctorTile extends StatelessWidget {
                 child: Column(
                   children: [
                     Text(
-                      'Dr.${doctor.name ?? 'Doctor Name'}',
+                      'Dr.${doctor?.name ?? 'Doctor Name'}',
                       textAlign: TextAlign.center,
                       style: Theme.of(context).textTheme.bodyLarge!.copyWith(
                             color: ColorsManager().colorScheme.black,
@@ -49,7 +50,7 @@ class DoctorTile extends StatelessWidget {
                     ),
                     SizedBox(height: 4.h),
                     Text(
-                      '${doctor.degree} | ${doctor.city?.name}',
+                      '${doctor?.degree} | ${doctor?.city?.name}',
                       textAlign: TextAlign.center,
                       style: Theme.of(context).textTheme.bodyMedium!.copyWith(
                             color: ColorsManager().colorScheme.grey80,
@@ -77,7 +78,7 @@ class DoctorTile extends StatelessWidget {
           color: ColorsManager().colorScheme.grey60,
         ),
         SizedBox(width: 8.w),
-        Text(doctor.phone ?? '')
+        Text(doctor?.phone ?? '+20123456789'),
       ],
     );
   }
