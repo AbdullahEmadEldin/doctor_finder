@@ -1,4 +1,5 @@
 import 'package:dio/dio.dart';
+import 'package:doctor_finder/modules/home/data/models/specialties_response_model.dart';
 import 'package:retrofit/retrofit.dart';
 
 import '../../../../core/services/networking/api_constants.dart';
@@ -9,5 +10,5 @@ abstract class HomeApiService {
   factory HomeApiService(Dio dio) = _HomeApiService;
 
   @GET(ApiConstants.specialtiesEP)
-  Future<dynamic> getSpecialties();
+  Future<SpecialtiesResponseModel> getSpecialties();
 }

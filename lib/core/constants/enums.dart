@@ -1,3 +1,5 @@
+// ignore_for_file: constant_identifier_names
+
 import 'package:doctor_finder/core/constants/image_assets.dart';
 
 enum Gender {
@@ -5,20 +7,18 @@ enum Gender {
   female(),
 }
 
-enum DoctorSpecialty {
-  general(ImageAssets.general),
-  urology(ImageAssets.urology),
-  cardio(ImageAssets.cardio),
-  dent(ImageAssets.dent),
-  ent(ImageAssets.ent),
-  hepato(ImageAssets.hepato),
-  histo(ImageAssets.histo),
-  intestine(ImageAssets.intestine),
-  nuero(ImageAssets.nuero),
-  opthalmo(ImageAssets.opthalmo),
-  pedo(ImageAssets.pedo),
-  pulmonary(ImageAssets.pulmonary);
+enum DoctorSpecialtyEnum {
+  Cardiology(ImageAssets.cardio),
+  Dermatology(ImageAssets.dermatology),
+  Neurology(ImageAssets.nuero),
+  Orthopedics(ImageAssets.orthopedic),
+  Pediatrics(ImageAssets.pedo),
+  Gynecology(ImageAssets.gynecology),
+  Ophthalmology(ImageAssets.opthalmo),
+  Urology(ImageAssets.urology),
+  Gastroenterology(ImageAssets.gastro),
+  Psychiatry(ImageAssets.phsyco);
 
   final String icon;
-  const DoctorSpecialty(this.icon);
+  const DoctorSpecialtyEnum(this.icon);
 }

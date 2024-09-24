@@ -18,6 +18,7 @@ abstract class AppColorScheme {
   Color get primarySurface;
 
   /// Grey color gradients
+  Color get grey10;
   Color get grey20;
   Color get grey30;
   Color get grey40;
@@ -63,6 +64,8 @@ class LightColorScheme implements AppColorScheme {
   Color get primarySurface => const Color(0xffA7CBFF);
 
   //****************************** GREY Color IMPL ************************* */
+   @override
+  Color get grey10 => const Color(0xffF5F5F5);
   @override
   Color get grey20 => const Color(0xffF5F5F5);
   @override
@@ -128,6 +131,8 @@ class DarkColorScheme implements AppColorScheme {
   Color get primarySurface => const Color(0xffA7CBFF);
 
   //****************************** GREY Color IMPL ************************* */
+   @override
+  Color get grey10 => const Color(0xffF5F5F5);
   @override
   Color get grey20 => const Color(0xffF5F5F5);
   @override

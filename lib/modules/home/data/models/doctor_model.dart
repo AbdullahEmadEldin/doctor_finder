@@ -2,23 +2,23 @@ import 'package:json_annotation/json_annotation.dart';
 part 'doctor_model.g.dart';
 @JsonSerializable()
 class Doctor {
-  final int id;
-  final String name;
-  final String email;
-  final String phone;
-  final String photo;
-  final String gender;
-  final String address;
-  final String description;
-  final String degree;
+  final int? id;
+  final String? name;
+  final String? email;
+  final String? phone;
+  final String? photo;
+  final String? gender;
+  final String? address;
+  final String? description;
+  final String? degree;
 
   @JsonKey(name: 'appoint_price')
-  final int price;
+  final int? price;
   @JsonKey(name: 'start_time')
-  final String startTime;
+  final String? startTime;
   @JsonKey(name: 'end_time')
-  final String endTime;
-  final City city;
+  final String? endTime;
+  final City? city;
 
   Doctor({
     required this.id,
@@ -40,9 +40,9 @@ class Doctor {
 
 @JsonSerializable()
 class City {
-  final int id;
-  final String name;
-  final Governorate governorate;
+  final int? id;
+  final String? name;
+  final Governorate? governorate;
 
   City({required this.id, required this.name, required this.governorate});
 
@@ -51,8 +51,8 @@ class City {
 
 @JsonSerializable()
 class Governorate {
-  final int id;
-  final String name;
+  final int? id;
+  final String? name;
 
   Governorate({required this.id, required this.name});
 

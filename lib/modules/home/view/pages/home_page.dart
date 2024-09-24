@@ -1,10 +1,8 @@
 import 'package:doctor_finder/modules/home/view/widgets/home_banner.dart';
-import 'package:doctor_finder/modules/home/view/widgets/specialties.dart';
+import 'package:doctor_finder/modules/home/view/widgets/specialty_bloc_builder.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../widgets/doctors_list_view.dart';
-import '../widgets/doctors_recommendtion.dart';
 import '../widgets/home_top_bar.dart';
 
 class HomePage extends StatelessWidget {
@@ -23,10 +21,7 @@ class HomePage extends StatelessWidget {
               SizedBox(height: 28.h),
               const HomeBanner(),
               SizedBox(height: 16.h),
-              const Specialties(),
-              const DoctorsRecommendation(),
-              SizedBox(height: 16.h),
-              const DoctorsListView(),
+              const SpecialtyAndDoctorsBlocBuilder(),
             ],
           ),
         ),

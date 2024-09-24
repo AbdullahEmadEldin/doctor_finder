@@ -5,14 +5,15 @@ import 'package:doctor_finder/modules/home/data/networking/home_api_service.dart
 
 class HomeRepo {
   final HomeApiService _homeApiService;
-
+// 123@Abdullah
   HomeRepo(this._homeApiService);
 
   Future<ApiResult<SpecialtiesResponseModel>> getSpecialties() async {
     try {
-      _homeApiService.getSpecialties();
-      return ApiResult.success(await _homeApiService.getSpecialties());
+      final res = await _homeApiService.getSpecialties();
+      return ApiResult.success(res);
     } catch (error) {
+      print('====>>>>>>>>>>> REPO Faiiiiiiiilure');
       return ApiResult.failure(ErrorHandler.handle(error));
     }
   }

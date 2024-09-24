@@ -5,7 +5,7 @@ part 'specialties_response_model.g.dart';
 @JsonSerializable()
 class SpecialtiesResponseModel {
   @JsonKey(name: 'data')
-  final List<DoctorSpecialty> data;
+  final List<DoctorSpecialty?>? data;
 
   SpecialtiesResponseModel({required this.data});
 
@@ -15,10 +15,10 @@ class SpecialtiesResponseModel {
 
 @JsonSerializable()
 class DoctorSpecialty {
-  final int id;
-  final String name;
+  final int? id;
+  final String? name;
   @JsonKey(name: 'icon')
-  List<Doctor> doctors;
+  List<Doctor?>? doctors;
 
   DoctorSpecialty(
       {required this.id, required this.name, required this.doctors});

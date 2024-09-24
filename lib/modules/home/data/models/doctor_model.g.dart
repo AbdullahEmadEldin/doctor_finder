@@ -7,19 +7,21 @@ part of 'doctor_model.dart';
 // **************************************************************************
 
 Doctor _$DoctorFromJson(Map<String, dynamic> json) => Doctor(
-      id: (json['id'] as num).toInt(),
-      name: json['name'] as String,
-      email: json['email'] as String,
-      phone: json['phone'] as String,
-      photo: json['photo'] as String,
-      gender: json['gender'] as String,
-      address: json['address'] as String,
-      description: json['description'] as String,
-      degree: json['degree'] as String,
-      price: (json['appoint_price'] as num).toInt(),
-      startTime: json['start_time'] as String,
-      endTime: json['end_time'] as String,
-      city: City.fromJson(json['city'] as Map<String, dynamic>),
+      id: (json['id'] as num?)?.toInt(),
+      name: json['name'] as String?,
+      email: json['email'] as String?,
+      phone: json['phone'] as String?,
+      photo: json['photo'] as String?,
+      gender: json['gender'] as String?,
+      address: json['address'] as String?,
+      description: json['description'] as String?,
+      degree: json['degree'] as String?,
+      price: (json['appoint_price'] as num?)?.toInt(),
+      startTime: json['start_time'] as String?,
+      endTime: json['end_time'] as String?,
+      city: json['city'] == null
+          ? null
+          : City.fromJson(json['city'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$DoctorToJson(Doctor instance) => <String, dynamic>{
@@ -39,10 +41,11 @@ Map<String, dynamic> _$DoctorToJson(Doctor instance) => <String, dynamic>{
     };
 
 City _$CityFromJson(Map<String, dynamic> json) => City(
-      id: (json['id'] as num).toInt(),
-      name: json['name'] as String,
-      governorate:
-          Governorate.fromJson(json['governorate'] as Map<String, dynamic>),
+      id: (json['id'] as num?)?.toInt(),
+      name: json['name'] as String?,
+      governorate: json['governorate'] == null
+          ? null
+          : Governorate.fromJson(json['governorate'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$CityToJson(City instance) => <String, dynamic>{
@@ -52,8 +55,8 @@ Map<String, dynamic> _$CityToJson(City instance) => <String, dynamic>{
     };
 
 Governorate _$GovernorateFromJson(Map<String, dynamic> json) => Governorate(
-      id: (json['id'] as num).toInt(),
-      name: json['name'] as String,
+      id: (json['id'] as num?)?.toInt(),
+      name: json['name'] as String?,
     );
 
 Map<String, dynamic> _$GovernorateToJson(Governorate instance) =>

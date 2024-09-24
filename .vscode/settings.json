@@ -1,11 +1,14 @@
 {
     "java.compile.nullAnalysis.mode": "automatic",
     "cSpell.words": [
+        "gastro",
         "hepato",
         "histo",
         "Imageonboarding",
+        "neuro",
         "nuero",
         "opthalmo",
-        "pedo"
+        "pedo",
+        "phsyco"
     ]
 }

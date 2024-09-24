@@ -7,6 +7,8 @@ import 'package:get_it/get_it.dart';
 
 import '../../modules/auth/signup/data/repos/signup_repo.dart';
 import '../../modules/auth/signup/logic/cubit/signup_cubit.dart';
+import '../../modules/home/data/networking/home_api_service.dart';
+import '../../modules/home/data/repos/home_repo.dart';
 
 final getIt = GetIt.instance;
 
@@ -20,4 +22,8 @@ void setUpGetIt() {
   // Sign up cubit & repo
   getIt.registerLazySingleton<SignupRepo>(() => SignupRepo(getIt()));
   getIt.registerFactory<SignupCubit>(() => SignupCubit(getIt()));
+
+  // home Aip service & repo
+  getIt.registerLazySingleton<HomeApiService>(() => HomeApiService(dio));
+  getIt.registerLazySingleton<HomeRepo>(() => HomeRepo(getIt()));
 }

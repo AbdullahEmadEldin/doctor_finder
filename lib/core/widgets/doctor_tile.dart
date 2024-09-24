@@ -16,7 +16,7 @@ class DoctorTile extends StatelessWidget {
         borderRadius: BorderRadius.circular(16.r),
         child: Container(
           decoration: BoxDecoration(
-            color: const Color(0xffF4F8FF),
+            color: ColorsManager().colorScheme.background,
             borderRadius: BorderRadius.circular(16.r),
           ),
           child: Row(
