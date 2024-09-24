@@ -6,11 +6,13 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 class SpecialtyTile extends StatelessWidget {
   final String? specialtyTitle;
   final String? specialtyImage;
+  final bool isSpecialtySelected;
   final Function()? onTap;
   const SpecialtyTile({
     super.key,
     this.specialtyTitle,
     this.specialtyImage,
+    this.isSpecialtySelected = false,
     this.onTap,
   });
 
@@ -18,17 +20,19 @@ class SpecialtyTile extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        InkWell(
+        GestureDetector(
           onTap: onTap,
           child: Container(
             height: 70.h,
             decoration: BoxDecoration(
               color: ColorsManager().colorScheme.grey10,
               borderRadius: BorderRadius.circular(64.r),
-              // border: Border.all(
-              //   // color: ColorsManager().colorScheme.primary,
-              //   width: 1.3,
-              // ),
+              border: Border.all(
+                color: isSpecialtySelected
+                    ? ColorsManager().colorScheme.primary
+                    : Colors.transparent,
+                width: 1.3,
+              ),
             ),
             child: Image.asset(
               specialtyImage ?? ImageAssets.generalSpec,
@@ -38,10 +42,15 @@ class SpecialtyTile extends StatelessWidget {
         ),
         Text(
           specialtyTitle ?? 'Spec',
-          style: Theme.of(context)
-              .textTheme
-              .bodySmall!
-              .copyWith(color: ColorsManager().colorScheme.black),
+          style: isSpecialtySelected
+              ? Theme.of(context).textTheme.bodyMedium!.copyWith(
+                    fontWeight: FontWeight.w700,
+                    color: ColorsManager().colorScheme.primary,
+                  )
+              : Theme.of(context).textTheme.bodySmall!.copyWith(
+                    color: ColorsManager().colorScheme.black,
+                    fontSize: 12.sp,
+                  ),
         ),
       ],
     );

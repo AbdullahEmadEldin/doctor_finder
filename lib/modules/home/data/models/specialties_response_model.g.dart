@@ -26,7 +26,7 @@ DoctorSpecialty _$DoctorSpecialtyFromJson(Map<String, dynamic> json) =>
     DoctorSpecialty(
       id: (json['id'] as num?)?.toInt(),
       name: json['name'] as String?,
-      doctors: (json['icon'] as List<dynamic>?)
+      doctors: (json['doctors'] as List<dynamic>?)
           ?.map((e) =>
               e == null ? null : Doctor.fromJson(e as Map<String, dynamic>))
           .toList(),
@@ -36,5 +36,5 @@ Map<String, dynamic> _$DoctorSpecialtyToJson(DoctorSpecialty instance) =>
     <String, dynamic>{
       'id': instance.id,
       'name': instance.name,
-      'icon': instance.doctors,
+      'doctors': instance.doctors,
     };

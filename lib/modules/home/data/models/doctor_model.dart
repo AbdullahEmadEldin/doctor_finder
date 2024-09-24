@@ -18,7 +18,9 @@ class Doctor {
   final String? startTime;
   @JsonKey(name: 'end_time')
   final String? endTime;
+  final Specialization? specialization; 
   final City? city;
+
 
   Doctor({
     required this.id,
@@ -33,6 +35,7 @@ class Doctor {
     required this.price,
     required this.startTime,
     required this.endTime,
+    required this.specialization,
     required this.city,
   });
   factory Doctor.fromJson(Map<String, dynamic> json) => _$DoctorFromJson(json);
@@ -48,7 +51,16 @@ class City {
 
   factory City.fromJson(Map<String, dynamic> json) => _$CityFromJson(json);
 }
+@JsonSerializable()
+class  Specialization{
+  final int? id;
+  final String? name;
 
+  Specialization({required this.id, required this.name});
+
+  factory Specialization.fromJson(Map<String, dynamic> json) =>
+      _$SpecializationFromJson(json);
+}
 @JsonSerializable()
 class Governorate {
   final int? id;

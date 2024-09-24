@@ -1,5 +1,5 @@
 import 'package:doctor_finder/core/di/dependency_injection.dart';
-import 'package:doctor_finder/modules/home/logic/specialties_cubit.dart';
+import 'package:doctor_finder/modules/home/logic/home_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -13,7 +13,7 @@ class HomeRouter {
           transitionDuration: const Duration(milliseconds: 800),
           transitionsBuilder: _homePagesAnimationBuilder,
           pageBuilder: (context, animation, secondaryAnimation) => BlocProvider(
-            create: (context) => SpecialtiesCubit(getIt())..getSpecialties(),
+            create: (context) => HomeCubit(getIt())..getSpecialties(),
             child: const HomePage(),
           ),
         );

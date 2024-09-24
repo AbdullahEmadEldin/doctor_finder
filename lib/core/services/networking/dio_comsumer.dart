@@ -28,9 +28,9 @@ class DioFactory {
     }
   }
 
-/// Dio instance is initialized before saving token into header
-/// So, we need to set token into header after login 
-/// by invoking this function in loginCubit after successful login.
+  /// Dio instance is initialized before saving token into header
+  /// So, we need to set token into header after login
+  /// by invoking this function in loginCubit after successful login.
   static void setTokenIntoHeaderAfterLogin(String token) {
     _dio?.options.headers = {
       'Authorization': 'Bearer $token',
@@ -51,7 +51,7 @@ class DioFactory {
     _dio?.options.headers = {
       'Accept': 'application/json',
       'Authorization':
-          'Bearer ${await CacheHelper.getData(key: SharedPrefKeys.token)}',
+          'Bearer ${await CacheHelper.getSecuredString(SharedPrefKeys.token)}',
     };
   }
 }

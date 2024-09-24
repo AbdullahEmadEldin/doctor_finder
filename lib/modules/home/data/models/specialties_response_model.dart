@@ -2,6 +2,7 @@ import 'package:json_annotation/json_annotation.dart';
 
 import 'doctor_model.dart';
 part 'specialties_response_model.g.dart';
+
 @JsonSerializable()
 class SpecialtiesResponseModel {
   @JsonKey(name: 'data')
@@ -17,7 +18,6 @@ class SpecialtiesResponseModel {
 class DoctorSpecialty {
   final int? id;
   final String? name;
-  @JsonKey(name: 'icon')
   List<Doctor?>? doctors;
 
   DoctorSpecialty(
@@ -25,4 +25,3 @@ class DoctorSpecialty {
   factory DoctorSpecialty.fromJson(Map<String, dynamic> json) =>
       _$DoctorSpecialtyFromJson(json);
 }
-

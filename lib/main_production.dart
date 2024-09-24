@@ -52,7 +52,7 @@ void main() async {
 
 Future<String> handleInitialRoute() async {
   String initialRoute;
-  String? token = await CacheHelper.getData(key: SharedPrefKeys.token);
+  String? token = await CacheHelper.getSecuredString(SharedPrefKeys.token);
 
   bool firstLaunch =
       await CacheHelper.getData(key: SharedPrefKeys.firstLaunch) ?? true;

@@ -1,9 +1,11 @@
+import 'package:doctor_finder/modules/home/logic/home_cubit.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../../../core/constants/enums.dart';
-import '../../data/models/specialties_response_model.dart';
-import 'home_section_header.dart';
+import '../../../../../core/constants/enums.dart';
+import '../../../data/models/specialties_response_model.dart';
+import '../home_section_header.dart';
 import 'specialty_tile.dart';
 
 class SpecialtiesListView extends StatefulWidget {
@@ -15,7 +17,7 @@ class SpecialtiesListView extends StatefulWidget {
 }
 
 class _SpecialtiesListViewState extends State<SpecialtiesListView> {
-  int _groupValue = -1;
+  int _selectedSpecialtyIndex = 0;
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -37,7 +39,15 @@ class _SpecialtiesListViewState extends State<SpecialtiesListView> {
               padding: EdgeInsetsDirectional.only(start: index == 0 ? 0 : 8.w),
               child: SpecialtyTile(
                 specialtyTitle: widget.specialtiesData[index]?.name,
-                onTap: () {},
+                isSpecialtySelected: index == _selectedSpecialtyIndex,
+                onTap: () {
+                  setState(() {
+                    _selectedSpecialtyIndex = index;
+                  });
+                  context.read<HomeCubit>().getDoctorsList(
+                        specializationId: widget.specialtiesData[index]?.id,
+                      );
+                },
                 // passing the specialty icon like this because there is no icon come from backend
                 specialtyImage: widget.specialtiesData[index]?.name ==
                         DoctorSpecialtyEnum.values[index].name

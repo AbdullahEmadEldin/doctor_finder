@@ -19,6 +19,10 @@ Doctor _$DoctorFromJson(Map<String, dynamic> json) => Doctor(
       price: (json['appoint_price'] as num?)?.toInt(),
       startTime: json['start_time'] as String?,
       endTime: json['end_time'] as String?,
+      specialization: json['specialization'] == null
+          ? null
+          : Specialization.fromJson(
+              json['specialization'] as Map<String, dynamic>),
       city: json['city'] == null
           ? null
           : City.fromJson(json['city'] as Map<String, dynamic>),
@@ -37,6 +41,7 @@ Map<String, dynamic> _$DoctorToJson(Doctor instance) => <String, dynamic>{
       'appoint_price': instance.price,
       'start_time': instance.startTime,
       'end_time': instance.endTime,
+      'specialization': instance.specialization,
       'city': instance.city,
     };
 
@@ -52,6 +57,18 @@ Map<String, dynamic> _$CityToJson(City instance) => <String, dynamic>{
       'id': instance.id,
       'name': instance.name,
       'governorate': instance.governorate,
+    };
+
+Specialization _$SpecializationFromJson(Map<String, dynamic> json) =>
+    Specialization(
+      id: (json['id'] as num?)?.toInt(),
+      name: json['name'] as String?,
+    );
+
+Map<String, dynamic> _$SpecializationToJson(Specialization instance) =>
+    <String, dynamic>{
+      'id': instance.id,
+      'name': instance.name,
     };
 
 Governorate _$GovernorateFromJson(Map<String, dynamic> json) => Governorate(
