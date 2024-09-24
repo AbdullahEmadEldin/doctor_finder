@@ -25,8 +25,8 @@ class ApiErrorModel {
     /// the password key differs according to the error type.
     /// So, we need to extract the value (error Details message) whatever the key.
     String? errMsg;
-    Map<String, dynamic>? data = json['data'];
-    if (data != null) {
+    dynamic data = json['data'];
+    if (data != null && data is Map) {
       data.forEach((key, value) {
         if (value is List && value.isNotEmpty) {
           errMsg = value.first;

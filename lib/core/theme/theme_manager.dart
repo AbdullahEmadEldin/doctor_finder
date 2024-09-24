@@ -15,8 +15,8 @@ class AppThemes {
   ThemeMode? get themeMode => _value;
 
   updateThemeValue(bool isDark) {
-    if (CacheHelper.getData(key: AppConstants.sharedPrefKeys.isDark) != null) {
-      _value = CacheHelper.getData(key: AppConstants.sharedPrefKeys.isDark)
+    if (CacheHelper.getData(key: SharedPrefKeys.isDark) != null) {
+      _value = CacheHelper.getData(key: SharedPrefKeys.isDark)
           ? ThemeMode.dark
           : ThemeMode.light;
     }
@@ -25,7 +25,7 @@ class AppThemes {
   }
 
   final ValueNotifier<ThemeMode?> themeNotifier = ValueNotifier(
-      CacheHelper.getData(key: AppConstants.sharedPrefKeys.isDark) ?? false
+      CacheHelper.getData(key: SharedPrefKeys.isDark) ?? false
           ? ThemeMode.dark
           : _value);
 

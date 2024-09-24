@@ -1,17 +1,21 @@
+import 'package:doctor_finder/core/di/dependency_injection.dart';
+import 'package:doctor_finder/modules/home/logic/home_cubit.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'view/pages/home_page.dart';
 
-class HomeRouter
- {
+class HomeRouter {
   static Route? onGenerate(RouteSettings settings) {
     switch (settings.name) {
       case HomePage.routeName:
         return PageRouteBuilder(
           transitionDuration: const Duration(milliseconds: 800),
           transitionsBuilder: _homePagesAnimationBuilder,
-          pageBuilder: (context, animation, secondaryAnimation) =>
-              const HomePage(),
+          pageBuilder: (context, animation, secondaryAnimation) => BlocProvider(
+            create: (context) => HomeCubit(getIt())..getSpecialties(),
+            child: const HomePage(),
+          ),
         );
       default:
         return null;

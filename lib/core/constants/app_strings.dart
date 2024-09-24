@@ -7,6 +7,8 @@ class AppStrings {
   static const String welcome2 = 'welcome2';
   static const String login = 'login';
 
+  static const String stayLoggedIn = 'stay_logged_in';
+
   static const String forgotPassword = 'forgot_password';
   static const String resetPassword = 'reset_password';
   static const String email = 'email';
