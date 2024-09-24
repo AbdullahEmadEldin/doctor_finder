@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 abstract class CacheHelper {
@@ -10,13 +11,19 @@ abstract class CacheHelper {
     required String key,
     required dynamic value,
   }) async {
+    debugPrint("SharedPrefHelper : setData with key : $key and value : $value");
+
     if (value is String) return await _instance.setString(key, value);
     if (value is int) return await _instance.setInt(key, value);
     if (value is bool) return await _instance.setBool(key, value);
     return await _instance.setDouble(key, value);
   }
 
-  static dynamic getData({required String key}) => _instance.get(key);
+  static dynamic getData({required String key}) {
+    debugPrint("SharedPrefHelper : getData with key : $key and value : ${_instance.get(key)}");
+
+    return _instance.get(key);
+  }
 
   static Future<bool> removeData({
     required String key,

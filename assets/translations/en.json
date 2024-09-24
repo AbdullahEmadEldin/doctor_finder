@@ -34,6 +34,7 @@
     "female":"Female",
     "enter_phone_number":"Enter valid phone number",
     "enter_name":"Enter Name",
-    "need_to_login":". You need to login"
+    "need_to_login":". You need to login",
+    "stay_logged_in": "Remember me"
 
 }

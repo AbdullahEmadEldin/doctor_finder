@@ -19,12 +19,12 @@ class LanguageManager {
   static Future<void> changeAppLang(BuildContext context,
       {required LanguageType lang}) async {
     await CacheHelper.saveData(
-        key: AppConstants.sharedPrefKeys.lang, value: lang.code);
+        key: SharedPrefKeys.lang, value: lang.code);
     context.setLocale(Locale(lang.code));
   }
 
   static Future<String> getAppLang() async {
-    return await CacheHelper.getData(key: AppConstants.sharedPrefKeys.lang) ??
+    return await CacheHelper.getData(key: SharedPrefKeys.lang) ??
         LanguageType.english.code;
   }
 }

@@ -8,6 +8,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../../core/constants/app_strings.dart';
+import '../../../../../core/constants/constants.dart';
+import '../../../../../core/services/cache/cache_helper.dart';
 import '../../../../../core/widgets/custom_alert_dialog.dart';
 import '../../../../home/view/pages/home_page.dart';
 
@@ -32,6 +34,11 @@ class LoginBlocListener extends StatelessWidget {
             context.pop();
             showCustomToast(context, 'Successfully logged in');
             context.pushReplacementNamed(HomePage.routeName);
+            // This value is assigned in StayLoggedCheckBox widget.
+             CacheHelper.saveData(
+                key: SharedPrefKeys.stayLoggedIn,
+                value: context.read<LoginCubit>().rememberMe,
+              );
           },
           failure: (message) {
             context.pop();

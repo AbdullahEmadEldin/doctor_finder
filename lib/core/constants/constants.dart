@@ -1,5 +1,4 @@
 class AppConstants {
-  static SharedPrefKeys sharedPrefKeys = SharedPrefKeys();
   static SqlKeys sqlKeys = SqlKeys();
   static const int splashTimer = 2;
   static const int pageSize = 50;
@@ -8,12 +7,12 @@ class AppConstants {
 }
 
 class SharedPrefKeys {
-  String lang = 'lang';
-  String firstLaunch = 'firstLaunch';
-  String stayLoggedIn = 'stayLoggedIn';
-  String token = 'userToken';
-  String userId = 'id';
-  String isDark = 'isDark';
+  static String lang = 'lang';
+  static String firstLaunch = 'firstLaunch';
+  static String stayLoggedIn = 'stayLoggedIn';
+  static String token = 'userToken';
+  static String userId = 'id';
+  static String isDark = 'isDark';
 }
 
 class SqlKeys {
