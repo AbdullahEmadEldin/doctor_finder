@@ -28,12 +28,19 @@ class HomeTopBar extends StatelessWidget {
                     ))
           ],
         ),
-        CircleAvatar(
-          radius: 24.r,
-          backgroundColor: ColorsManager().colorScheme.grey20,
-          child: Image.asset(
-            ImageAssets.notificationIcon,
-            height: 24.h,
+        InkWell(
+          onTap: () {},
+          child: CircleAvatar(
+            radius: 24.r,
+            backgroundColor: ColorsManager().colorScheme.grey20,
+            child: Badge(
+              smallSize: 8.r,
+              backgroundColor: ColorsManager().colorScheme.fillRed,
+              child: Image.asset(
+                ImageAssets.notificationIcon,
+                height: 24.h,
+              ),
+            ),
           ),
         )
       ],
