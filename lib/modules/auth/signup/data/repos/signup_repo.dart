@@ -1,5 +1,5 @@
 import 'package:doctor_finder/core/services/networking/api_result.dart';
-import 'package:doctor_finder/core/services/networking/exceptions.dart';
+import 'package:doctor_finder/core/services/networking/api_error_handler.dart';
 import 'package:doctor_finder/modules/auth/signup/data/model/signup_response.dart';
 
 import '../../../../../core/services/networking/api_consumer.dart';
@@ -14,7 +14,7 @@ class SignupRepo {
       final res = await _apiConsumer.signUp(body);
       return ApiResult.success(res);
     } catch (e) {
-      return ApiResult.failure(ErrorHandler.handle(e));
+      return ApiResult.failure(ApiErrorHandler.handle(e));
     }
   }
 }

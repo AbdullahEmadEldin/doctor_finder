@@ -1,12 +1,12 @@
 /// handling error details like this as a reaction against the server error response
 /// and handling it properly
 class ApiErrorModel {
-  final int code;
+  final int? code;
   final String message;
   final String? errorDetails;
   ApiErrorModel({
-    required this.code,
     required this.message,
+    this.code,
     this.errorDetails,
   });
 

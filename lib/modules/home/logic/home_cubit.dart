@@ -2,7 +2,7 @@ import 'package:doctor_finder/core/helpers/extensions.dart';
 import 'package:doctor_finder/modules/home/data/repos/home_repo.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../core/services/networking/exceptions.dart';
+import '../../../core/services/networking/api_error_handler.dart';
 import '../data/models/doctor_model.dart';
 import '../data/models/specialties_response_model.dart';
 import 'home_state.dart';
@@ -27,7 +27,7 @@ class HomeCubit extends Cubit<HomeState> {
       },
       failure: (error) {
         emit(
-          HomeState.specializationsError(message: error.apiErrorModel.message),
+          HomeState.specializationsError(message: error.message),
         );
       },
     );
@@ -40,7 +40,7 @@ class HomeCubit extends Cubit<HomeState> {
     if (!doctorsList.isNullOrEmpty()) {
       emit(HomeState.doctorsSuccess(doctorsList));
     } else {
-      emit(HomeState.doctorsError(ErrorHandler.handle('No doctors found')));
+      emit(HomeState.doctorsError(ApiErrorHandler.handle('No doctors found')));
     }
   }
 
