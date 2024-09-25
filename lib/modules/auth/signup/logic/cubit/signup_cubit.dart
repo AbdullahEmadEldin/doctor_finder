@@ -25,7 +25,7 @@ class SignupCubit extends Cubit<SignupState> {
     emit(const SignupState.loading());
     final result = await _signupRepo.signUp(
       SignUpRequestBody(
-        name: '',
+        name: nameController.text,
         email: emailController.text,
         phone: phoneController.text,
         password: passwordController.text,
