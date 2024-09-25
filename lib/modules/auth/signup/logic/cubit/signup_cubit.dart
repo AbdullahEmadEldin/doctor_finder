@@ -1,4 +1,5 @@
 import 'package:doctor_finder/core/constants/enums.dart';
+import 'package:doctor_finder/core/helpers/extensions.dart';
 import 'package:doctor_finder/modules/auth/signup/data/model/signup_request_body.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -24,19 +25,23 @@ class SignupCubit extends Cubit<SignupState> {
     emit(const SignupState.loading());
     final result = await _signupRepo.signUp(
       SignUpRequestBody(
-        name: nameController.text,
+        name: '',
         email: emailController.text,
         phone: phoneController.text,
         password: passwordController.text,
         passwordConfirmation: passwordConfirmationController.text,
-        gender:gender == Gender.male ? 0 :  1,
+        gender: gender == Gender.male ? 0 : 1,
       ),
     );
     result.whenOrNull(
       success: (data) => emit(SignupState.success(data)),
-      failure: (errorHandler) => emit(SignupState.failure(
-          message: errorHandler.errorDetails ??
-              errorHandler.message)),
+      failure: (errorModel) => emit(
+        SignupState.failure(
+          message: errorModel.errorDetails.isNullOrEmpty()
+              ? errorModel.message
+              : errorModel.errorDetails!,
+        ),
+      ),
     );
   }
 }

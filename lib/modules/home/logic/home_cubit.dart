@@ -18,16 +18,19 @@ class HomeCubit extends Cubit<HomeState> {
     final res = await _homeRepo.getSpecialties();
     res.when(
       success: (specializationsResponseModel) {
-          specializationsList =
-            specializationsResponseModel.data ?? [];
+        specializationsList = specializationsResponseModel.data ?? [];
 
         // getting the doctors list for the first specialization by default.
         getDoctorsList(specializationId: specializationsList?.first?.id);
         emit(HomeState.specializationsSuccess(specializationsResponseModel));
       },
-      failure: (error) {
+      failure: (errorModel) {
         emit(
-          HomeState.specializationsError(message: error.message),
+          HomeState.specializationsError(
+            message:  errorModel.errorDetails.isNullOrEmpty()
+              ? errorModel.message
+              : errorModel.errorDetails!
+          ),
         );
       },
     );
