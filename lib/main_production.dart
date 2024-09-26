@@ -61,9 +61,11 @@ Future<String> handleInitialRoute() async {
       await CacheHelper.getData(key: SharedPrefKeys.stayLoggedIn) ?? false;
   if (firstLaunch) {
     initialRoute = OnboardingPage.routeName;
-  } else if (!token.isNullOrEmpty() && stayLoggedIn) {
-    initialRoute = HomePage.routeName;
-  } else {
+  } 
+  // else if (!token.isNullOrEmpty() && stayLoggedIn) {
+  //   initialRoute = HomePage.routeName;
+  // } 
+  else {
     initialRoute = LoginPage.routeName;
   }
   // if(!token.isNullOrEmpty()){

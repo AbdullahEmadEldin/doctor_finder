@@ -1,4 +1,5 @@
 import 'package:doctor_finder/core/constants/constants.dart';
+import 'package:doctor_finder/core/helpers/extensions.dart';
 import 'package:doctor_finder/core/services/networking/dio_comsumer.dart';
 import 'package:doctor_finder/modules/auth/login/data/repo/login_repo.dart';
 import 'package:flutter/material.dart';
@@ -18,6 +19,7 @@ class LoginCubit extends Cubit<LoginState> {
   TextEditingController passwordController = TextEditingController();
   final GlobalKey<FormState> loginFormKey = GlobalKey<FormState>();
   bool rememberMe = false;
+
   ///
   Future<void> login() async {
     emit(const LoginState.loading());
@@ -27,12 +29,21 @@ class LoginCubit extends Cubit<LoginState> {
         password: passwordController.text,
       ),
     );
-    res.when(success: (loginResponse) async {
-      await _saveUserToken(loginResponse.data?.token ?? '');
-      emit(LoginState.success(loginResponse));
-    }, failure: (error) {
-      emit(LoginState.failure(message: error.apiErrorModel.message));
-    });
+    res.when(
+      success: (loginResponse) async {
+        await _saveUserToken(loginResponse.data?.token ?? '');
+        emit(LoginState.success(loginResponse));
+      },
+      failure: (errorModel) {
+        emit(
+          LoginState.failure(
+            message:  errorModel.errorDetails.isNullOrEmpty()
+              ? errorModel.message
+              : errorModel.errorDetails!
+          ),
+        );
+      },
+    );
   }
 
   Future<void> _saveUserToken(String token) async {

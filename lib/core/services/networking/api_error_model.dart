@@ -1,12 +1,12 @@
 /// handling error details like this as a reaction against the server error response
 /// and handling it properly
 class ApiErrorModel {
-  final int code;
+  final int? code;
   final String message;
   final String? errorDetails;
   ApiErrorModel({
-    required this.code,
     required this.message,
+    this.code,
     this.errorDetails,
   });
 
@@ -24,12 +24,12 @@ class ApiErrorModel {
      */
     /// the password key differs according to the error type.
     /// So, we need to extract the value (error Details message) whatever the key.
-    String? errMsg;
-    dynamic data = json['data'];
-    if (data != null && data is Map) {
-      data.forEach((key, value) {
+    String errMsg = '';
+    dynamic errorData = json['data'];
+    if (errorData != null && errorData is Map) {
+      errorData.forEach((key, value) {
         if (value is List && value.isNotEmpty) {
-          errMsg = value.first;
+          errMsg = errMsg + value.first + '\n';
         } else {
           errMsg = value.toString();
         }
