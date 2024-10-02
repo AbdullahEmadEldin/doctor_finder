@@ -53,12 +53,13 @@ void main() async {
 Future<String> handleInitialRoute() async {
   String initialRoute;
   String? token = await CacheHelper.getSecuredString(SharedPrefKeys.token);
-
   bool firstLaunch =
       await CacheHelper.getData(key: SharedPrefKeys.firstLaunch) ?? true;
 
   bool stayLoggedIn =
       await CacheHelper.getData(key: SharedPrefKeys.stayLoggedIn) ?? false;
+        print('=StayLoggedIn $stayLoggedIn ======>>> token: $token');
+
   if (firstLaunch) {
     initialRoute = OnboardingPage.routeName;
   } else if (!token.isNullOrEmpty() && stayLoggedIn) {
