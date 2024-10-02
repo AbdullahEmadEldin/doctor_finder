@@ -1,3 +1,6 @@
+import 'package:awesome_dialog/awesome_dialog.dart';
+import 'package:doctor_finder/core/helpers/extensions.dart';
+import 'package:doctor_finder/modules/auth/login/view/pages/login_page.dart';
 import 'package:doctor_finder/modules/home/logic/home_cubit.dart';
 import 'package:doctor_finder/modules/home/logic/home_state.dart';
 import 'package:doctor_finder/modules/home/view/widgets/doctors/doctor_tile.dart';
@@ -28,6 +31,19 @@ class SpecialtyBlocBuilder extends StatelessWidget {
                 specialtiesData: specialtiesDataList ?? []);
           },
           specializationsError: (message) {
+            if (message == 'Unauthorized') {
+              WidgetsBinding.instance.addPostFrameCallback((_) {
+                AwesomeDialog(
+                  context: context,
+                  dialogType: DialogType.warning,
+                  animType: AnimType.rightSlide,
+                  title: 'Session Expired',
+                  desc: 'Please Login Again...',
+                  btnOkOnPress: () =>
+                      context.pushReplacementNamed(LoginPage.routeName),
+                ).show();
+              });
+            }
             return Text(message);
           },
           orElse: () {
